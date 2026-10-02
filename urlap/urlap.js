@@ -44,20 +44,30 @@ function UrlapBetoltes() {
     szolgalatSelect.required = true;
 
     const opcio1 = document.createElement('option');
-    opcio1.value = "Esküvői fotózás";
-    opcio1.textContent = "Esküvői fotózás";
+    opcio1.value = "Kinti focipálya";
+    opcio1.textContent = "Kinti focipálya";
 
     const opcio2 = document.createElement('option');
-    opcio2.value = "Jegyes fotózás";
-    opcio2.textContent = "Jegyes fotózás";
+    opcio2.value = "Kosár pálya";
+    opcio2.textContent = "Kosár pálya";
 
     const opcio3 = document.createElement('option');
-    opcio3.value = "Párfotózás";
-    opcio3.textContent = "Párfotózás";
+    opcio3.value = "Benti focipálya";
+    opcio3.textContent = "Benti focipálya";
+
+    const opcio4 = document.createElement('option');
+    opcio4.value = "Darts";
+    opcio4.textContent = "Darts";
+
+    const opcio5 = document.createElement('option');
+    opcio5.value = "Csocsó";
+    opcio5.textContent = "Csocsó";
 
     szolgalatSelect.appendChild(opcio1);
     szolgalatSelect.appendChild(opcio2);
     szolgalatSelect.appendChild(opcio3);
+    szolgalatSelect.appendChild(opcio4);
+    szolgalatSelect.appendChild(opcio5);
     szolgalatLabel.appendChild(szolgalatSelect);
 
     // a datumnak a kivalasztasa
@@ -115,7 +125,7 @@ function UrlapBetoltes() {
         localStorage.setItem('idopontFoglalas', JSON.stringify(foglalasAdatok));
 
         // atiranyit
-        window.location.href = 'urlapvisszaigazolo.html';
+        window.location.href = 'visszaigazolo.html';
     });
 
     // az urlapot a zeredmenybe
