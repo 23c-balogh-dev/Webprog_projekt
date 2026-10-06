@@ -1,101 +1,117 @@
+document.addEventListener("DOMContentLoaded", () => {
+    UrlapBetoltes();
+});
+
 function UrlapBetoltes() {
-    // form elem létrehozása
     const urlap = document.createElement("form");
     urlap.id = "idopontForm";
 
-    // a név beírásához
     const nevLabel = document.createElement("label");
     nevLabel.textContent = "Teljes név: ";
     const nevInput = document.createElement("input");
     nevInput.type = "text";
-    nevInput.name = "nev";
     nevInput.id = "nev";
     nevInput.required = true;
     nevInput.minLength = 3;
-    nevLabel.appendChild(document.createElement("br"));
     nevLabel.appendChild(nevInput);
 
-    // az email
     const emailLabel = document.createElement("label");
     emailLabel.textContent = "E-mail cím: ";
     const emailInput = document.createElement("input");
     emailInput.type = "email";
-    emailInput.name = "email";
     emailInput.id = "email";
     emailInput.required = true;
-    emailLabel.appendChild(document.createElement("br"));
     emailLabel.appendChild(emailInput);
 
-    // a telefonszám
     const telLabel = document.createElement("label");
     telLabel.textContent = "Telefonszám: ";
     const telInput = document.createElement("input");
     telInput.type = "tel";
-    telInput.name = "telefon";
     telInput.id = "telefon";
     telInput.placeholder = "+36301234567";
     telInput.required = true;
-    telLabel.appendChild(document.createElement("br"));
     telLabel.appendChild(telInput);
 
-    // a szolgáltatás kiválasztása gördülőmenüből
     const szolgalatLabel = document.createElement("label");
-    szolgalatLabel.textContent = "Választott szolgáltatás: ";
+    szolgalatLabel.textContent = "Választott pálya: ";
     const szolgalatSelect = document.createElement("select");
-    szolgalatSelect.name = "szolgaltatas";
     szolgalatSelect.id = "szolgaltatas";
     szolgalatSelect.required = true;
 
-    const opciok = [
-        "Kinti focipálya",
-        "Kosár pálya",
-        "Benti focipálya",
-        "Darts",
-        "Csocsó"
+    const palyak = [
+        { nev: "Kinti focipálya", ar: 8000 },
+        { nev: "Kosár pálya", ar: 6000 },
+        { nev: "Benti focipálya", ar: 10000 },
+        { nev: "Darts", ar: 3000 },
+        { nev: "Csocsó", ar: 2500 }
     ];
 
-    opciok.forEach(opcioSzoveg => {
+    palyak.forEach(palyi => {
         const opcio = document.createElement("option");
-        opcio.value = opcioSzoveg;
-        opcio.textContent = opcioSzoveg;
+        opcio.value = palyi.nev;
+        opcio.dataset.ar = palyi.ar;
+        opcio.textContent = `${palyi.nev} (${palyi.ar} Ft / óra)`;
         szolgalatSelect.appendChild(opcio);
     });
-
-    szolgalatLabel.appendChild(document.createElement("br"));
     szolgalatLabel.appendChild(szolgalatSelect);
 
-    // a dátum kiválasztása
     const datumLabel = document.createElement("label");
     datumLabel.textContent = "Foglalás dátuma: ";
     const datumInput = document.createElement("input");
     datumInput.type = "date";
-    datumInput.name = "datum";
     datumInput.id = "datum";
     datumInput.required = true;
-
-    // minimum dátum beállítása (a mai napnál korábbit ne lehessen választani)
-    const ma = new Date().toISOString().split("T")[0];
-    datumInput.min = ma;
-    datumLabel.appendChild(document.createElement("br"));
+    datumInput.min = new Date().toISOString().split("T")[0];
     datumLabel.appendChild(datumInput);
 
-    // megjegyzés
+    const idotartamLabel = document.createElement("label");
+    idotartamLabel.textContent = "Időtartam (óra): ";
+    const idotartamInput = document.createElement("input");
+    idotartamInput.type = "number";
+    idotartamInput.id = "idotartam";
+    idotartamInput.value = 1;
+    idotartamInput.min = 1;
+    idotartamInput.max = 5;
+    idotartamLabel.appendChild(idotartamInput);
+
+    const osszegLabel = document.createElement("label");
+    osszegLabel.textContent = "Várható fizetendő összeg: ";
+    const osszegInput = document.createElement("input");
+    osszegInput.type = "text";
+    osszegInput.id = "vegösszeg";
+    osszegInput.readOnly = true;
+    osszegInput.value = "8000 Ft";
+    osszegLabel.appendChild(osszegInput);
+
+    function frissitAr() {
+        const valasztottOpcio = szolgalatSelect.options[szolgalatSelect.selectedIndex];
+        const oradij = parseInt(valasztottOpcio.dataset.ar || 8000);
+        const orakSzama = parseInt(idotartamInput.value) || 1;
+        
+        const vegösszeg = oradij * orakSzama;
+        osszegInput.value = `${vegösszeg.toLocaleString()} Ft`;
+    }
+
+    szolgalatSelect.addEventListener("change", frissitAr);
+    idotartamInput.addEventListener("input", frissitAr);
+
     const megjegyzesLabel = document.createElement("label");
     megjegyzesLabel.textContent = "Megjegyzés / Részletek: ";
     const megjegyzesTextarea = document.createElement("textarea");
-    megjegyzesTextarea.name = "megjegyzes";
     megjegyzesTextarea.id = "megjegyzes";
-    megjegyzesTextarea.rows = 4;
-    megjegyzesLabel.appendChild(document.createElement("br"));
+    megjegyzesTextarea.rows = 3;
     megjegyzesLabel.appendChild(megjegyzesTextarea);
 
-    // küldés gomb
     const kuldesGomb = document.createElement("input");
     kuldesGomb.type = "submit";
     kuldesGomb.value = "Időpont lefoglalása";
 
-    // az elemek hozzáadása a formhoz (formázhatóság miatt mindegyik után tehetünk sortörést vagy csomagolhatjuk div-be)
-    const elemek = [nevLabel, emailLabel, telLabel, szolgalatLabel, datumLabel, megjegyzesLabel];
+    const elemek = [
+        nevLabel, emailLabel, telLabel, 
+        szolgalatLabel, datumLabel, idotartamLabel, 
+        osszegLabel, megjegyzesLabel
+    ];
+
     elemek.forEach(elem => {
         const div = document.createElement("div");
         div.style.marginBottom = "15px";
@@ -104,9 +120,8 @@ function UrlapBetoltes() {
     });
     urlap.appendChild(kuldesGomb);
 
-    // űrlap beküldése és mentése
     urlap.addEventListener("submit", function (event) {
-        event.preventDefault(); // lap újratöltését megakadályozza
+        event.preventDefault();
 
         const foglalasAdatok = {
             nev: document.getElementById("nev").value,
@@ -114,21 +129,15 @@ function UrlapBetoltes() {
             telefon: document.getElementById("telefon").value,
             szolgaltatas: document.getElementById("szolgaltatas").value,
             datum: document.getElementById("datum").value,
+            idotartam: document.getElementById("idotartam").value,
+            osszeg: document.getElementById("vegösszeg").value,
             megjegyzes: document.getElementById("megjegyzes").value
         };
 
-        // elmenti az adatokat
         localStorage.setItem("idopontFoglalas", JSON.stringify(foglalasAdatok));
-
-        // átirányít a visszaigazoló oldalra
         window.location.href = "visszaigazolo.html";
     });
 
-    // az űrlap elhelyezése a DOM-ban
-    const container = document.getElementById("urlap-container");
-    if (container) {
-        container.appendChild(urlap);
-    } else {
-        document.body.appendChild(urlap);
-    }
+    const container = document.getElementById("urlap-container") || document.body;
+    container.appendChild(urlap);
 }
