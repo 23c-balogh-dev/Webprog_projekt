@@ -38,6 +38,13 @@ function UrlapBetoltes() {
     szolgalatSelect.id = "szolgaltatas";
     szolgalatSelect.required = true;
 
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.textContent = "Válassz pályát!";
+    defaultOption.selected = true;
+    defaultOption.disabled = true;
+    szolgalatSelect.appendChild(defaultOption);
+
     const palyak = [
         { nev: "Kinti focipálya", ar: 8000 },
         { nev: "Kosár pálya", ar: 6000 },
@@ -71,11 +78,11 @@ function UrlapBetoltes() {
     idotartamInput.id = "idotartam";
     idotartamInput.value = 1;
     idotartamInput.min = 1;
-    idotartamInput.max = 5;
+    idotartamInput.max = 24;
     idotartamLabel.appendChild(idotartamInput);
 
     const osszegLabel = document.createElement("label");
-    osszegLabel.textContent = "Várható fizetendő összeg: ";
+    osszegLabel.textContent = "Fizetendő összeg: ";
     const osszegInput = document.createElement("input");
     osszegInput.type = "text";
     osszegInput.id = "vegösszeg";
@@ -105,6 +112,22 @@ function UrlapBetoltes() {
     const kuldesGomb = document.createElement("input");
     kuldesGomb.type = "submit";
     kuldesGomb.value = "Időpont lefoglalása";
+
+    const tabOrder = [
+        nevInput,
+        emailInput,
+        telInput,
+        szolgalatSelect,
+        datumInput,
+        idotartamInput,
+        osszegInput,
+        megjegyzesTextarea,
+        kuldesGomb
+    ];
+
+    tabOrder.forEach((field, index) => {
+        field.tabIndex = index + 1;
+    });
 
     const elemek = [
         nevLabel, emailLabel, telLabel, 
