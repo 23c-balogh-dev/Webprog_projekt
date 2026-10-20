@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportPálya Centrum - Kezdőlap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../fooldal/style.css">
+</head>
+<body>
+    <!-- Navigáció -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="../fooldal/jo.html"><i class="bi bi-trophy-fill text-success me-2"></i>SportPálya Centrum</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active fw-bold text-success" href="../fooldal/jo.html"><i class="bi bi-house-door me-1"></i> Főoldal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../foglalasok/foglalasok.html"><i class="bi bi-calendar-check me-1"></i> Foglalások</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../urlap/urlap.html"><i class="bi bi-plus-circle me-1"></i> Új Foglalás</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-wrapper">
+        <!-- Hero Fejléc -->
+        <div class="hero-section text-center">
+            <div class="container">
+                <h1 class="display-4 fw-bold mb-3">SportPálya Centrum</h1>
+                <p class="lead mb-4">Ahol a sport és a kényelem találkozik. Bérrelj pályát néhány kattintással!</p>
+                <a href="../urlap/urlap.html" class="btn btn-success btn-lg px-4"><i class="bi bi-calendar-plus me-2"></i>Pályafoglalás Most</a>
+            </div>
+        </div>
+
+        <!-- Részletes Bemutatkozás -->
+        <div class="container mb-5">
+            <div class="card card-custom p-4 p-md-5 border-0 shadow-sm">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-7">
+                        <h2 class="fw-bold text-success mb-3"><i class="bi bi-building me-2"></i>Kik vagyunk és mit nyújtunk?</h2>
+                        <p class="fs-5 text-secondary">
+                            A <strong>SportPálya Centrum</strong> a régió legmodernebb sportkomplexuma, amely professzionális körülményeket biztosít mind az amatőr, mind a haladó sportolók számára.
+                        </p>
+                        <p class="text-muted">
+                            Célunk, hogy a pályafoglalás folyamatát a lehető legegyszerűbbé tegyük. Nincs többé hosszas telefonálgatás vagy egyeztetés: online felületünkön valós időben böngészhetsz a szabad időpontok között, és azonnal lefoglalhatod a neked megfelelő pályát.
+                        </p>
+                        <div class="row g-3 mt-2">
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success fs-4 me-2"></i>
+                                    <span>Kültéri és beltéri pályák</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success fs-4 me-2"></i>
+                                    <span>Öltözők és zuhanyzók</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success fs-4 me-2"></i>
+                                    <span>Világítás éjszakai játékhoz</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success fs-4 me-2"></i>
+                                    <span>Ingyenes parkolás és büfé</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-center">
+                        <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=600&q=80" alt="Sportkomplexum" class="img-fluid rounded-3 shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfólió / Pályáink -->
+        <div class="container mb-5">
+            <h2 class="text-center fw-bold mb-4"><i class="bi bi-trophy me-2 text-success"></i>Foglalható Pályáink</h2>
+            <div class="row g-4" id="palyak-portfolio">
+                <!-- JS tölti fel -->
+            </div>
+        </div>
+
+        <!-- Ügyfeleink véleményei / Visszajelzések kártyák -->
+    <div class="container mb-5">
+        <h2 class="text-center fw-bold mb-4">
+            <i class="bi bi-chat-square-quote me-2 text-success"></i>Amiért minket választanak
+        </h2>
+        <div class="row g-4" id="visszajelzesek-container">
+            <!-- A JavaScript tölti fel dinamikusan a kártyákat -->
+        </div>
+    </div>
+
+        <!-- Szolgáltatások Info -->
+        <div class="bg-white py-5 mb-5 shadow-sm">
+            <div class="container">
+                <div class="row text-center g-4">
+                    <div class="col-md-4">
+                        <i class="bi bi-shield-check display-4 text-success mb-3"></i>
+                        <h4>Garantált Időpontok</h4>
+                        <p class="text-muted">Az online felületünkön valós időben látja a szabad és foglalt idősávokat.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="bi bi-lightning-charge display-4 text-success mb-3"></i>
+                        <h4>Azonnali Visszaigazolás</h4>
+                        <p class="text-muted">A foglalás beküldése után azonnal megjelenik az áttekintő kártya és az adatok.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="bi bi-cash-coin display-4 text-success mb-3"></i>
+                        <h4>Transzparens Árak</h4>
+                        <p class="text-muted">Nincsenek rejtett költségek. Az ár kiszámítása automatikusan történik az időtartam alapján.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 SportPálya Centrum. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn" class="btn btn-success"><i class="bi bi-arrow-up fs-4"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../fooldal/fooldal.js"></script>
+</body>
+</html>
