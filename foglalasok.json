@@ -1,0 +1,17 @@
+[
+  { "id": 101, "palyaId": "P1", "nev": "Kovács Péter", "email": "kovacs.p@example.com", "telefon": "+36301234567", "datum": "2026-10-15", "kezdioido": 16, "idotartam": 2, "vegosszeg": 16000, "statusz": "Aktiv", "softDeleted": false },
+  { "id": 102, "palyaId": "P2", "nev": "Nagy István", "email": "nagy.istvan@example.com", "telefon": "+36209876543", "datum": "2026-10-15", "kezdioido": 18, "idotartam": 1, "vegosszeg": 10000, "statusz": "Aktiv", "softDeleted": false },
+  { "id": 103, "palyaId": "P3", "nev": "Szabó Balázs", "email": "szabo.b@example.com", "telefon": "+36701112233", "datum": "2026-10-16", "kezdioido": 10, "idotartam": 2, "vegosszeg": 14000, "statusz": "Aktiv", "softDeleted": false },
+  { "id": 104, "palyaId": "P4", "nev": "Tóth Anna", "email": "toth.anna@example.com", "telefon": "+36304445566", "datum": "2026-10-16", "kezdioido": 14, "idotartam": 1, "vegosszeg": 6000, "statusz": "Aktiv", "softDeleted": false },
+  { "id": 105, "palyaId": "P1", "nev": "Varga Gábor", "email": "varga.g@example.com", "telefon": "+36203332211", "datum": "2026-10-17", "kezdioido": 17, "idotartam": 2, "vegosszeg": 16000, "statusz": "Aktiv", "softDeleted": false },
+  { "id": 106, "palyaId": "P5", "nev": "Horváth Dániel", "email": "horvath.d@example.com", "telefon": "+36709998877", "datum": "2026-10-17", "kezdioido": 19, "idotartam": 1, "vegosszeg": 5000, "statusz": "Aktiv", "softDeleted": false },
+  { "id": 107, "palyaId": "P6", "nev": "Kiss Zoltán", "email": "kiss.z@example.com", "telefon": "+36307776655", "datum": "2026-10-18", "kezdioido": 15, "idotartam": 3, "vegosszeg": 10500, "statusz": "Aktiv", "softDeleted": false },
+  { "id": 108, "palyaId": "P2", "nev": "Molnár Éva", "email": "molnar.eva@example.com", "telefon": "+36205554433", "datum": "2026-10-18", "kezdioido": 10, "idotartam": 2, "vegosszeg": 20000, "statusz": "Aktiv", "softDeleted": false },
+  { "id": 109, "palyaId": "P3", "nev": "Fekete Ádám", "email": "fekete.a@example.com", "telefon": "+36702223344", "datum": "2026-10-19", "kezdioido": 16, "idotartam": 1, "vegosszeg": 7000, "statusz": "Aktiv", "softDeleted": false },
+  { "id": 110, "palyaId": "P4", "nev": "Németh Luca", "email": "nemeth.l@example.com", "telefon": "+36308889900", "datum": "2026-10-19", "kezdioido": 17, "idotartam": 2, "vegosszeg": 12000, "statusz": "Aktiv", "softDeleted": false },
+  { "id": 111, "palyaId": "P1", "nev": "Balogh Tamás", "email": "balogh.t@example.com", "telefon": "+36201231234", "datum": "2026-10-20", "kezdioido": 18, "idotartam": 2, "vegosszeg": 16000, "statusz": "Aktiv", "softDeleted": false },
+  { "id": 112, "palyaId": "P5", "nev": "Takács Bence", "email": "takacs.b@example.com", "telefon": "+36704564567", "datum": "2026-10-20", "kezdioido": 16, "idotartam": 1, "vegosszeg": 5000, "statusz": "Aktiv", "softDeleted": false },
+  { "id": 113, "palyaId": "P6", "nev": "Juhász Rábán", "email": "juhasz.r@example.com", "telefon": "+36306549870", "datum": "2026-10-21", "kezdioido": 14, "idotartam": 2, "vegosszeg": 7000, "statusz": "Aktiv", "softDeleted": false },
+  { "id": 114, "palyaId": "P2", "nev": "Lakatos Krisztián", "email": "lakatos.k@example.com", "telefon": "+36203216549", "datum": "2026-10-21", "kezdioido": 19, "idotartam": 1, "vegosszeg": 10000, "statusz": "Aktiv", "softDeleted": false },
+  { "id": 115, "palyaId": "P3", "nev": "Meszes Máté", "email": "meszes.m@example.com", "telefon": "+36709871234", "datum": "2026-10-22", "kezdioido": 15, "idotartam": 2, "vegosszeg": 14000, "statusz": "Aktiv", "softDeleted": false }
+]
