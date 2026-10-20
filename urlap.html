@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportPálya Centrum - Új Foglalás</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../fooldal/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="../fooldal/jo.html"><i class="bi bi-trophy-fill text-success me-2"></i>SportPálya Centrum</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../fooldal/jo.html"><i class="bi bi-house-door me-1"></i> Főoldal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../foglalasok/foglalasok.html"><i class="bi bi-calendar-check me-1"></i> Foglalások</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold text-success" href="../urlap/urlap.html"><i class="bi bi-plus-circle me-1"></i> Új Foglalás</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4 content-wrapper">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card card-custom p-4">
+                    <h2 class="fw-bold text-center mb-4"><i class="bi bi-calendar-plus text-success me-2"></i>Új Pályafoglalás</h2>
+                    
+                    <div id="alertContainer"></div>
+
+                    <form id="foglalasForm" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="nev" class="form-label fw-semibold">Teljes Név *</label>
+                                <input type="text" class="form-control" id="nev" required minlength="3">
+                                <div class="invalid-feedback">Név megadása kötelező (legalább 3 karakter)!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label fw-semibold">E-mail Cím *</label>
+                                <input type="email" class="form-control" id="email" required>
+                                <div class="invalid-feedback">Érvényes email cím szükséges!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="telefon" class="form-label fw-semibold">Telefonszám *</label>
+                                <input type="tel" class="form-control" id="telefon" placeholder="+36301234567" required pattern="^(\+36|06)[\s\-]?\d{1,2}[\s\-]?\d{3}[\s\-]?\d{3,4}$">
+                                <div class="invalid-feedback">Érvényes magyar telefonszám szükséges (+36... vagy 06...)!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="palyaSelect" class="form-label fw-semibold">Választott Pálya *</label>
+                                <select class="form-select" id="palyaSelect" required>
+                                    <option value="" disabled selected>Válasszon pályát...</option>
+                                </select>
+                                <div class="invalid-feedback">Kérjük, válasszon pályát!</div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="datum" class="form-label fw-semibold">Foglalás Dátuma *</label>
+                                <input type="date" class="form-control" id="datum" required>
+                                <div class="invalid-feedback">Múltbéli dátum nem választható!</div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="kezdioido" class="form-label fw-semibold">Kezdési Idő *</label>
+                                <select class="form-select" id="kezdioido" required>
+                                    <option value="" disabled selected>Válasszon...</option>
+                                </select>
+                                <div class="invalid-feedback">Kérjük, válasszon kezdési időpontot!</div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="idotartam" class="form-label fw-semibold">Időtartam (Óra) *</label>
+                                <input type="number" class="form-control" id="idotartam" value="1" min="1" max="5" required>
+                                <div class="invalid-feedback">1 és 5 óra közötti időtartam adható meg!</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="megjegyzes" class="form-label fw-semibold">Megjegyzés</label>
+                                <textarea class="form-control" id="megjegyzes" rows="2" placeholder="Egyedi kérések..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <div class="p-3 bg-light rounded border d-flex justify-content-between align-items-center">
+                                    <span class="fs-5 fw-bold">Várható Fizetendő Összeg:</span>
+                                    <span class="fs-4 fw-bold text-success" id="szamitottAr">0 Ft</span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-success w-100 py-2 fs-5"><i class="bi bi-check-circle me-2"></i>Foglalás Véglegesítése</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Visszaigazolás -->
+    <div class="modal fade" id="visszaigazolasModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title"><i class="bi bi-check-circle-fill me-2"></i>Sikeres Foglalás!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="visszaigazolasContent"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+                    <a href="../foglalasok/foglalasok.html" class="btn btn-success">Foglalások Megtekintése</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-4 text-center mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 SportPálya Centrum. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn" class="btn btn-success"><i class="bi bi-arrow-up fs-4"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../urlap/urlap.js"></script>
+</body>
+</html>
