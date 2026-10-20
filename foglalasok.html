@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportPálya Centrum - Foglalások</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../fooldal/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="../fooldal/jo.html"><i class="bi bi-trophy-fill text-success me-2"></i>SportPálya Centrum</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../fooldal/jo.html"><i class="bi bi-house-door me-1"></i> Főoldal</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold text-success" href="../foglalasok/foglalasok.html"><i class="bi bi-calendar-check me-1"></i> Foglalások</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../urlap/urlap.html"><i class="bi bi-plus-circle me-1"></i> Új Foglalás</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4 content-wrapper">
+        <h2 class="fw-bold mb-4"><i class="bi bi-list-task me-2 text-success"></i>Aktuális Foglalások</h2>
+        
+        <div id="alertContainer"></div>
+
+        <!-- Szűrő és Nézetválasztó -->
+        <div class="card card-custom p-3 mb-4">
+            <div class="row g-3 align-items-center">
+                <div class="col-md-4">
+                    <label for="filterPalya" class="form-label fw-bold"><i class="bi bi-funnel me-1"></i>Pálya szűrés:</label>
+                    <select id="filterPalya" class="form-select">
+                        <option value="">Összes pálya</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="searchNev" class="form-label fw-bold"><i class="bi bi-search me-1"></i>Név / Email keresés:</label>
+                    <input type="text" id="searchNev" class="form-control" placeholder="Keresés...">
+                </div>
+                <div class="col-md-4 text-md-end pt-md-4">
+                    <div class="btn-group w-100 w-md-auto">
+                        <button id="btnViewTable" class="btn btn-outline-success active"><i class="bi bi-table me-1"></i>Táblázat</button>
+                        <button id="btnViewCards" class="btn btn-outline-success"><i class="bi bi-grid-3x3-gap me-1"></i>Kártyák</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Táblázatos Nézet -->
+        <div id="tableView" class="card card-custom p-3 table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th style="cursor: pointer;" id="sortNev">Név <i class="bi bi-arrow-down-up ms-1 text-muted"></i></th>
+                        <th style="cursor: pointer;" id="sortPalya">Pálya <i class="bi bi-arrow-down-up ms-1 text-muted"></i></th>
+                        <th style="cursor: pointer;" id="sortDatum">Dátum <i class="bi bi-arrow-down-up ms-1 text-muted"></i></th>
+                        <th>Idősáv</th>
+                        <th>Összeg</th>
+                        <th>Státusz</th>
+                        <th class="text-end">Művelet</th>
+                    </tr>
+                </thead>
+                <tbody id="foglalasokTableBody"></tbody>
+            </table>
+        </div>
+
+        <!-- Kártyás Nézet -->
+        <div id="cardsView" class="row g-3 d-none"></div>
+    </div>
+
+    <footer class="py-4 text-center mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 SportPálya Centrum. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn" class="btn btn-success"><i class="bi bi-arrow-up fs-4"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../foglalasok/foglalasok.js"></script>
+</body>
+</html>
