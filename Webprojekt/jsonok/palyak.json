@@ -1,0 +1,8 @@
+[
+  { "id": "P1", "nev": "A Pálya - Kinti Focipálya", "tipus": "Műfű", "kapacitas": 12, "oradij": 8000, "kep": "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=400&q=80" },
+  { "id": "P2", "nev": "B Pálya - Benti Teremfoci", "tipus": "Parketta", "kapacitas": 10, "oradij": 10000, "kep": "https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=400&q=80" },
+  { "id": "P3", "nev": "C Pálya - Kosárlabdapálya", "tipus": "Pro-Floor", "kapacitas": 10, "oradij": 7000, "kep": "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=400&q=80" },
+  { "id": "P4", "nev": "D Pálya - Teniszpálya 1", "tipus": "Salak", "kapacitas": 4, "oradij": 6000, "kep": "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=400&q=80" },
+  { "id": "P5", "nev": "E Pálya - Squash / Falabda", "tipus": "Zárt terem", "kapacitas": 2, "oradij": 5000, "kep": "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=400&q=80" },
+  { "id": "P6", "nev": "F Pálya - Darts & Csocsó Terem", "tipus": "Klubhelyiség", "kapacitas": 8, "oradij": 3500, "kep": "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=400&q=80" }
+]
